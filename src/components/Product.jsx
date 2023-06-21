@@ -21,25 +21,32 @@ const productList = [
 function Product() {
   const navigate = useNavigate();
   const [products, setProducts] = useState(productList);
-  useEffect(() => localStorage.setItem("product", JSON.stringify(products)), []);
+  useEffect(
+    () => localStorage.setItem("product", JSON.stringify(products)),
+    []
+  );
   return (
-    <div className="container d-flex">
-      <Outlet />
-      {products.map((product) => (
-        <Card style={{ width: "18rem", margin: "10px" }} key={product.id}>
-          <Card.Img variant="top" src={product.img} />
-          <Card.Body>
-            <Card.Title>{product.title}</Card.Title>
-            <Card.Text>{product.body}</Card.Text>
-            <Button
-              variant="primary"
-              onClick={() => navigate(`/product/productDetail/${product.id}`)}
-            >
-              Go to detail
-            </Button>
-          </Card.Body>
-        </Card>
-      ))}
+    <div className="container">
+      <div className="d-flex">
+        {products.map((product) => (
+          <Card style={{ width: "18rem", margin: "10px" }} key={product.id}>
+            <Card.Img variant="top" src={product.img} />
+            <Card.Body>
+              <Card.Title>{product.title}</Card.Title>
+              <Card.Text>{product.body}</Card.Text>
+              <Button
+                variant="primary"
+                onClick={() => navigate(`/product/productDetail/${product.id}`)}
+              >
+                Go to detail
+              </Button>
+            </Card.Body>
+          </Card>
+        ))}
+      </div>
+      <div>
+        <Outlet />
+      </div>
     </div>
   );
 }

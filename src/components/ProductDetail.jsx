@@ -20,7 +20,7 @@ export default function ProductDetail() {
         setProductShow(showProductDetail(params.id))
     }, [params])
     return (
-    <div>
+    <div className='container w-100'>
         <Image src={productShow?.img} fluid />
     </div>
   )
