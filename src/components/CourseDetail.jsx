@@ -1,12 +1,14 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom'
 
 export default function CourseDetail() {
-    const params = useParams()
-    console.log("🚀 ~ file: CourseDetail.jsx:6 ~ CourseDetail ~ params:", params)
+  const params = useParams()
+  console.log("🚀 ~ file: CourseDetail.jsx:6 ~ CourseDetail ~ params:", params)
+  
+
   return (
     <div>
-        <h2>Chi tiết khoá học</h2>
+        <h3>This is Couse Detail</h3>
         <p>Mã khoá học: {params.courseId}</p>
     </div>
   )
